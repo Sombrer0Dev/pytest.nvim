@@ -1,8 +1,8 @@
 -- In this file you define the User commands, i.t how the user will interact with your plugin.
 
 local sub_cmds = {
-  hello = require("base").hello,
-  bye = require("base").bye,
+  fixtures = require("pytest").fixtures,
+  bye = require("pytest").bye,
 }
 
 local sub_cmds_keys = {}
@@ -13,15 +13,15 @@ end
 local function main_cmd(opts)
   local sub_cmd = sub_cmds[opts.args]
   if sub_cmd == nil then
-    vim.print("Base: invalid subcommand")
+    vim.print("pytest: invalid subcommand")
   else
     sub_cmd()
   end
 end
 
-vim.api.nvim_create_user_command("Base", main_cmd, {
+vim.api.nvim_create_user_command("Pytest", main_cmd, {
   nargs = "?",
-  desc = "Base example command",
+  desc = "pytest example command",
   complete = function(arg_lead, _, _)
     return vim
       .iter(sub_cmds_keys)

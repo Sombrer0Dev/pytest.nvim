@@ -1,25 +1,25 @@
-local base = require("base")
+local pytest = require("pytest")
 
 
--- Test base.nvim with default options
+-- Test pytest.nvim with default options
 describe("Default options", function()
-  base.setup({})
+  pytest.setup({})
   it("can say hello", function()
-    assert.are.equal("Hello John Doe", base.hello())
+    assert.are.equal("Hello John Doe", pytest.hello())
   end)
   it("can say bye", function()
-    assert.are.equal("Bye John Doe", base.bye())
+    assert.are.equal("Bye John Doe", pytest.bye())
   end)
 end)
 
--- Test base.nvim with user defined options
+-- Test pytest.nvim with user defined options
 describe("User defined options", function()
-  base.setup({ name = "John Smith" })
+  pytest.setup({ name = "John Smith" })
   it("can say hello", function()
-    assert.are.equal("Hello John Smith", base.hello())
+    assert.are.equal("Hello John Smith", pytest.hello())
   end)
   it("can say bye", function()
-    assert.are.equal("Bye John Smith", base.bye())
+    assert.are.equal("Bye John Smith", pytest.bye())
   end)
 end)
 
